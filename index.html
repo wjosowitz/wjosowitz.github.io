@@ -7,14 +7,14 @@
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 <style>
   :root {
-    --concrete: #2a2d2e;
-    --concrete-light: #3a3e40;
-    --concrete-mid: #1e2122;
-    --offwhite: #e8e4de;
-    --teal: #2dd6c0;
-    --coral: #ff6b47;
-    --muted: #6a7075;
-    --border: #404548;
+    --concrete: #ffffff;
+    --concrete-light: #f0f0ee;
+    --concrete-mid: #e8e8e4;
+    --offwhite: #1a1a1a;
+    --teal: #0a9e8a;
+    --coral: #d94f2a;
+    --muted: #7a7a7a;
+    --border: #d0d0cc;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -33,7 +33,7 @@
     content: '';
     position: fixed;
     inset: 0;
-    background-image: radial-gradient(circle, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-image: radial-gradient(circle, rgba(0,0,0,0.04) 1px, transparent 1px);
     background-size: 4px 4px;
     pointer-events: none;
     z-index: 1000;
@@ -48,8 +48,9 @@
     grid-template-columns: auto 1fr auto;
     align-items: center;
     padding: 0;
-    background: var(--concrete-mid);
+    background: var(--concrete);
     border-bottom: 3px solid var(--teal);
+  border-bottom-color: var(--teal);
   }
 
   .nav-logo {
@@ -67,7 +68,7 @@
     padding: 0 1.75rem;
     font-family: 'Space Mono', monospace;
     font-size: 0.6rem;
-    color: var(--muted);
+    color: #999;
     letter-spacing: 0.1em;
   }
 
@@ -355,7 +356,7 @@
   .big-egg {
     margin: 0;
     padding: 2.5rem 2rem;
-    background: var(--concrete-mid);
+    background: var(--concrete);
     border-top: 3px solid var(--coral);
     display: grid;
     grid-template-columns: 1fr auto;
@@ -514,7 +515,7 @@
     pointer-events: none;
   }
 
-  .writing-card:hover::after { opacity: 0.15; }
+  .writing-card:hover::after { opacity: 0.25; }
 
   .writing-type {
     font-family: 'Space Mono', monospace;
@@ -605,7 +606,7 @@
   }
 
   /* ---- CONTACT ---- */
-  .contact-section { border-top: 3px solid var(--teal); }
+  .contact-section { border-top: 3px solid var(--teal); background: #1a1a1a; }
 
   .contact-body {
     display: grid;
@@ -625,6 +626,7 @@
     line-height: 0.95;
     letter-spacing: -0.02em;
     margin-bottom: 1.5rem;
+    color: #f0f0ee;
   }
 
   .contact-big .teal { color: var(--teal); }
@@ -632,7 +634,7 @@
 
   .contact-sub {
     font-size: 0.88rem;
-    color: var(--muted);
+    color: #8a8a8a;
     line-height: 1.7;
     max-width: 380px;
   }
@@ -649,10 +651,9 @@
     align-items: center;
     justify-content: space-between;
     padding: 1.5rem 2.5rem;
-    border-bottom: 2px solid var(--border);
+    border-bottom: 2px solid #333;
     text-decoration: none;
     transition: background 0.15s;
-    group: true;
   }
 
   .contact-link:hover { background: var(--concrete-light); }
@@ -663,7 +664,7 @@
     font-size: 1.1rem;
     text-transform: uppercase;
     letter-spacing: 0.01em;
-    color: var(--offwhite);
+    color: #f0f0ee;
     transition: color 0.15s;
   }
 
@@ -694,6 +695,7 @@
     grid-template-columns: 1fr auto 1fr;
     align-items: center;
     padding: 0;
+    background: #1a1a1a;
   }
 
   .footer-left {
@@ -702,8 +704,8 @@
     font-size: 0.58rem;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: var(--muted);
-    border-right: 2px solid var(--border);
+    color: #666;
+    border-right: 2px solid #333;
   }
 
   .footer-center {
@@ -712,7 +714,7 @@
     font-size: 0.7rem;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: var(--border);
+    color: #444;
   }
 
   .footer-right {
@@ -721,8 +723,8 @@
     font-size: 0.58rem;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: var(--muted);
-    border-left: 2px solid var(--border);
+    color: #666;
+    border-left: 2px solid #333;
     text-align: right;
   }
 
@@ -767,7 +769,7 @@
 <!-- NAV -->
 <nav>
   <a class="nav-logo" href="#">Will Josowitz</a>
-  <span class="nav-center">Los Angeles, CA &nbsp;·&nbsp; Actor / Designer / Writer</span>
+  <span class="nav-center">wjosowitz@gmail.com</span>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#acting">Acting</a></li>
@@ -779,41 +781,74 @@
 </nav>
 
 <!-- HERO -->
-<div class="hero">
-  <div class="hero-main">
-    <div class="hero-left">
-      <p class="hero-tag">Portfolio &nbsp;·&nbsp; 2025</p>
-      <h1 class="hero-name">WILL<span class="line2">JOSOWITZ</span></h1>
-      <p class="hero-desc">Actor, lighting designer, and writer working across live theater, independent film, and long-form fiction. Based in Los Angeles.</p>
+<div class="hero" id="home" style="border-top:none;min-height:auto;display:block;padding:0;">
+  <div style="display:grid;grid-template-columns:1fr 1fr;min-height:100vh;">
+
+    <!-- Left: photo -->
+    <div style="position:relative;overflow:hidden;background:#111;">
+      <img src="headshot.jpeg" alt="Will Josowitz"
+        style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;" />
     </div>
-    <div style="overflow:hidden;position:relative;">
-      <img src="headshot.jpeg" alt="Will Josowitz" style="width:100%;height:100%;object-fit:cover;object-position:center top;min-height:400px;display:block;filter:grayscale(20%);" />
-      <div style="position:absolute;bottom:0;left:0;right:0;height:120px;background:linear-gradient(transparent,var(--concrete));"></div>
+
+    <!-- Right: name, blurb, contact -->
+    <div style="display:flex;flex-direction:column;justify-content:center;padding:5rem 4rem;background:var(--concrete);border-left:3px solid var(--teal);position:relative;">
+
+      <!-- dot motif -->
+      <div style="position:absolute;bottom:2rem;right:2rem;width:180px;height:180px;
+        background-image:radial-gradient(circle,var(--teal) 1.5px,transparent 1.5px);
+        background-size:14px 14px;opacity:0.12;pointer-events:none;"></div>
+
+      <p style="font-family:'Space Mono',monospace;font-size:0.65rem;letter-spacing:0.2em;
+        text-transform:uppercase;color:var(--teal);margin-bottom:1.5rem;
+        animation:fadeUp 0.5s ease 0.1s both;">Los Angeles, CA</p>
+
+      <h1 style="font-family:'Archivo Black',sans-serif;font-size:clamp(3rem,6vw,6rem);
+        line-height:0.9;letter-spacing:-0.02em;text-transform:uppercase;margin-bottom:2rem;
+        animation:fadeUp 0.6s ease 0.2s both;">
+        WILL<br><span style="color:var(--coral);">JOSOWITZ</span>
+      </h1>
+
+      <p style="font-size:1rem;line-height:1.75;color:var(--muted);max-width:380px;
+        margin-bottom:3rem;animation:fadeUp 0.6s ease 0.35s both;">
+        I am an actor, lighting designer, and writer — and passionate nerd — based in LA.
+      </p>
+
+      <div style="display:flex;flex-direction:column;gap:0.75rem;animation:fadeUp 0.6s ease 0.45s both;">
+        <a href="#contact" style="display:inline-block;font-family:'Archivo Black',sans-serif;
+          font-size:0.78rem;letter-spacing:0.08em;text-transform:uppercase;
+          padding:1rem 2rem;background:var(--coral);color:#fff;text-decoration:none;
+          transition:background 0.2s;width:fit-content;"
+          onmouseover="this.style.background='var(--teal)'"
+          onmouseout="this.style.background='var(--coral)'">
+          Get in Touch
+        </a>
+        <a href="mailto:wjosowitz@gmail.com" style="font-family:'Space Mono',monospace;
+          font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;
+          color:var(--muted);text-decoration:none;padding-left:0.25rem;
+          transition:color 0.2s;"
+          onmouseover="this.style.color='var(--coral)'"
+          onmouseout="this.style.color='var(--muted)'">
+          wjosowitz@gmail.com →
+        </a>
+      </div>
+
+      <!-- role tags at bottom -->
+      <div style="position:absolute;bottom:0;left:0;right:0;display:grid;
+        grid-template-columns:repeat(4,1fr);border-top:2px solid var(--border);">
+        <div style="padding:0.75rem 1rem;font-family:'Space Mono',monospace;font-size:0.55rem;
+          letter-spacing:0.1em;text-transform:uppercase;color:var(--coral);
+          border-right:1px solid var(--border);">Actor</div>
+        <div style="padding:0.75rem 1rem;font-family:'Space Mono',monospace;font-size:0.55rem;
+          letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);
+          border-right:1px solid var(--border);">LD</div>
+        <div style="padding:0.75rem 1rem;font-family:'Space Mono',monospace;font-size:0.55rem;
+          letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);
+          border-right:1px solid var(--border);">Producer</div>
+        <div style="padding:0.75rem 1rem;font-family:'Space Mono',monospace;font-size:0.55rem;
+          letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);">Writer</div>
+      </div>
     </div>
-    <div class="hero-right">
-      <div class="hero-stat">
-        <span class="hero-stat-num">12+</span>
-        <span class="hero-stat-label">Productions as designer or operator</span>
-      </div>
-      <div class="hero-stat">
-        <span class="hero-stat-num">BA</span>
-        <span class="hero-stat-label">Theater — Carleton College, 3.62 GPA</span>
-      </div>
-      <div class="hero-stat">
-        <span class="hero-stat-num">2</span>
-        <span class="hero-stat-label">Departmental awards in theater</span>
-      </div>
-      <div class="hero-stat">
-        <span class="hero-stat-num">LA</span>
-        <span class="hero-stat-label">Based in Los Angeles, CA</span>
-      </div>
-    </div>
-  </div>
-  <div class="hero-bottom">
-    <div class="hero-role-item active">Actor</div>
-    <div class="hero-role-item">Lighting Designer</div>
-    <div class="hero-role-item">Producer</div>
-    <div class="hero-role-item">Writer</div>
+
   </div>
 </div>
 
@@ -825,40 +860,44 @@
     <span class="section-meta">The full picture</span>
   </div>
   <div class="about-body">
-    <div class="about-text reveal">
-      <p>I'm an actor, lighting designer, and writer based in Los Angeles. My background is in technical theater — I trained at Carleton College, worked as an electrician alongside professional touring companies, directed my senior thesis, and spent years as a lighting designer and operator across mainstage and independent productions.</p>
-      <p>Since moving to LA I've co-founded <strong>Big Egg Productions</strong>, an independent film company producing short films for competition and festival circuits. I'm currently volunteering as an electrician on a community theater production and building toward a full-time career in entertainment and live events.</p>
-      <p>Outside of production: I write long-form fantasy fiction, build elaborate fictional worlds, play competitive Valorant, and follow the kind of genre storytelling that rewards readers who pay close attention. My favorite author is Brandon Sanderson — the Cosmere is the fictional universe I care most about. Narrative games. Work where the universe itself has been thought through.</p>
+    <!-- Left: text + education grid stacked -->
+    <div style="display:flex;flex-direction:column;gap:0;">
+      <div class="about-text reveal" style="padding-bottom:0;">
+        <p>I'm an actor, lighting designer, and writer based in Los Angeles. My background is in technical theater — I trained at Carleton College, worked as an electrician alongside professional touring companies, directed my senior thesis, and spent years as a lighting designer and operator across mainstage and independent productions.</p>
+        <p>Since moving to LA I've co-founded <strong>Big Egg Productions</strong>, an independent film company producing short films for competition and festival circuits. I'm currently volunteering as an electrician on a community theater production and building toward a full-time career in entertainment and live events.</p>
+        <p>Outside of production: I write long-form fantasy fiction, build elaborate fictional worlds, play competitive Valorant, and follow the kind of genre storytelling that rewards readers who pay close attention. My favorite author is Brandon Sanderson — the Cosmere is the fictional universe I care most about. Narrative games. Work where the universe itself has been thought through.</p>
+      </div>
+      <!-- Education grid below text -->
+      <div class="about-grid reveal" style="border-top:2px solid var(--border);border-right:2px solid var(--border);">
+        <div class="about-cell">
+          <p class="about-cell-label">Education</p>
+          <p class="about-cell-text">BA Theater<br>Carleton College<br>GPA 3.62 · 2022</p>
+        </div>
+        <div class="about-cell">
+          <p class="about-cell-label">Awards</p>
+          <p class="about-cell-text">Toni Award in the Arts<br>Ann Goodson Weiner Prize in Theater &amp; Dance</p>
+        </div>
+        <div class="about-cell">
+          <p class="about-cell-label">Based</p>
+          <p class="about-cell-text">Los Angeles, CA<br>Available locally<br>and for travel</p>
+        </div>
+        <div class="about-cell">
+          <p class="about-cell-label">Currently</p>
+          <p class="about-cell-text">Next to Normal (electrician)<br>Iron and Dawn (writing)<br>Seeking acting roles</p>
+        </div>
+        <div class="about-cell">
+          <p class="about-cell-label">Production Tools</p>
+          <p class="about-cell-text">ETC Eos · QLab<br>Vectorworks<br>DaVinci Resolve</p>
+        </div>
+        <div class="about-cell">
+          <p class="about-cell-label">Also</p>
+          <p class="about-cell-text">Python · Swift<br>Unreal Engine<br>Excel / Salesforce</p>
+        </div>
+      </div>
     </div>
-    <div class="about-grid reveal">
-      <div class="about-cell">
-        <p class="about-cell-label">Education</p>
-        <p class="about-cell-text">BA Theater<br>Carleton College<br>GPA 3.62 · 2022</p>
-      </div>
-      <div class="about-cell">
-        <p class="about-cell-label">Awards</p>
-        <p class="about-cell-text">Toni Award in the Arts<br>Ann Goodson Weiner Prize in Theater &amp; Dance</p>
-      </div>
-      <div class="about-cell">
-        <p class="about-cell-label">Based</p>
-        <p class="about-cell-text">Los Angeles, CA<br>Available locally<br>and for travel</p>
-      </div>
-      <div class="about-cell">
-        <p class="about-cell-label">Currently</p>
-        <p class="about-cell-text">Next to Normal (electrician)<br>The March of Iron (writing)<br>Seeking acting roles</p>
-      </div>
-      <div class="about-cell">
-        <p class="about-cell-label">Production Tools</p>
-        <p class="about-cell-text">ETC Eos · QLab<br>Vectorworks<br>DaVinci Resolve</p>
-      </div>
-      <div class="about-cell">
-        <p class="about-cell-label">Also</p>
-        <p class="about-cell-text">Python · Swift<br>Unreal Engine<br>Excel / Salesforce</p>
-      </div>
-      <div style="grid-column:1/-1;border-top:2px solid var(--border);overflow:hidden;position:relative;height:320px;">
-        <img src="about_solo.jpeg" alt="Will Josowitz" style="width:100%;height:100%;object-fit:cover;object-position:center 30%;display:block;filter:grayscale(30%);" />
-        <div style="position:absolute;inset:0;background:linear-gradient(to right,rgba(30,33,34,0.7) 0%,transparent 50%);"></div>
-      </div>
+    <!-- Right: solo photo -->
+    <div style="border-left:2px solid var(--border);overflow:hidden;position:relative;min-height:500px;">
+      <img src="about_solo.jpeg" alt="Will Josowitz" style="width:100%;height:100%;object-fit:cover;object-position:center 30%;display:block;filter:grayscale(20%);" />
     </div>
   </div>
 </section>
