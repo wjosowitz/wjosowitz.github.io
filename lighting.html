@@ -9,7 +9,6 @@
   :root {
     --concrete: #ffffff;
     --concrete-light: #f0f0ee;
-    --concrete-mid: #e8e8e4;
     --offwhite: #1a1a1a;
     --teal: #0a9e8a;
     --coral: #d94f2a;
@@ -90,19 +89,18 @@
   }
 
   .nav-links a:hover { color: var(--teal); background: var(--concrete-light); }
-  .nav-links a.active { color: var(--teal); background: var(--concrete-light); }
+  .nav-links a.active { color: var(--teal); }
 
-  /* ---- SECTION SYSTEM ---- */
-  section { border-top: 3px solid var(--border); }
-
-  .section-head {
+  /* ---- PAGE HEADER ---- */
+  .page-header {
+    padding-top: 53px;
     display: grid;
     grid-template-columns: auto 1fr auto;
     align-items: center;
     border-bottom: 2px solid var(--border);
   }
 
-  .section-num {
+  .page-header-num {
     font-family: 'Space Mono', monospace;
     font-size: 0.6rem;
     letter-spacing: 0.15em;
@@ -112,7 +110,7 @@
     text-transform: uppercase;
   }
 
-  .section-title {
+  .page-header-title {
     font-family: 'Archivo Black', sans-serif;
     font-size: clamp(2rem, 4vw, 3.5rem);
     text-transform: uppercase;
@@ -121,216 +119,124 @@
     line-height: 1;
   }
 
-  .section-title .accent { color: var(--coral); }
+  .page-header-title .accent { color: var(--coral); }
 
-  .section-meta {
+  .page-header-meta {
     padding: 1rem 1.5rem;
     font-family: 'Space Mono', monospace;
     font-size: 0.85rem;
     color: var(--muted);
     letter-spacing: 0.1em;
-    text-align: right;
     border-left: 2px solid var(--border);
+    white-space: nowrap;
   }
 
-  /* ---- HERO ---- */
-  .ld-hero {
-    padding-top: 53px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    min-height: 85vh;
-    border-bottom: 3px solid var(--teal);
-  }
-
-  .ld-hero-content {
-    padding: 5rem 4rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background: var(--concrete);
-    border-right: 3px solid var(--teal);
-    position: relative;
-    overflow: hidden;
-  }
-
-  .ld-hero-content::before {
-    content: '';
-    position: absolute;
-    top: -20px; left: -20px;
-    width: 300px; height: 300px;
-    background-image: radial-gradient(circle, var(--teal) 1.5px, transparent 1.5px);
-    background-size: 18px 18px;
-    opacity: 0.1;
-    pointer-events: none;
-  }
-
-  .ld-hero-image {
-    position: relative;
-    overflow: hidden;
-    background: #111;
-  }
-
-  .ld-hero-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    display: block;
-  }
-
-  /* ---- TOOLS BAR ---- */
-  .tools-bar {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    border-bottom: 3px solid var(--teal);
-  }
-
-  .tool-cell {
-    padding: 1.4rem 1.5rem;
-    border-right: 2px solid var(--border);
-    display: flex;
-    flex-direction: column;
-    gap: 0.35rem;
-    transition: background 0.15s;
-  }
-
-  .tool-cell:hover { background: var(--concrete-light); }
-  .tool-cell:last-child { border-right: none; }
-
-  .tool-cell-label {
-    font-family: 'Space Mono', monospace;
-    font-size: 0.55rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--teal);
-  }
-
-  .tool-cell-name {
-    font-family: 'Archivo Black', sans-serif;
-    font-size: 0.82rem;
-    text-transform: uppercase;
-    letter-spacing: 0.01em;
-    color: var(--offwhite);
-    line-height: 1.2;
-  }
-
-  /* ---- PRODUCTION GRID ---- */
+  /* ---- PHOTO GRID ---- */
   .ld-grid {
+    padding: 3rem 2.5rem;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem 2rem;
   }
 
   .ld-card {
-    position: relative;
-    overflow: hidden;
-    border-right: 2px solid var(--border);
-    border-bottom: 2px solid var(--border);
-    cursor: default;
-    background: #111;
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
   }
 
-  .ld-card:nth-child(3n) { border-right: none; }
-  /* last row: remove bottom border */
-  .ld-card:nth-last-child(-n+3) { border-bottom: none; }
+  .ld-card-image {
+    overflow: hidden;
+    background: #111;
+    border-top: 3px solid transparent;
+    transition: border-color 0.2s;
+  }
 
-  .ld-card img {
+  .ld-card:hover .ld-card-image {
+    border-top-color: var(--teal);
+  }
+
+  .ld-card-image img {
     width: 100%;
     aspect-ratio: 4/3;
     object-fit: cover;
     display: block;
-    transition: transform 0.45s ease, filter 0.45s ease;
-    filter: brightness(0.95);
+    transition: transform 0.4s ease, filter 0.4s ease;
+    filter: brightness(0.97);
   }
 
-  .ld-card:hover img {
-    transform: scale(1.05);
-    filter: brightness(0.7);
+  .ld-card:hover .ld-card-image img {
+    transform: scale(1.03);
+    filter: brightness(0.92);
   }
 
-  .ld-card.featured {
-    grid-column: span 2;
-  }
-
-  .ld-card.featured img {
-    aspect-ratio: 16/9;
-  }
-
-  /* bring featured card back into nth-child border logic */
-  .ld-card.featured { border-right: 2px solid var(--border); }
-
-  /* ---- HOVER OVERLAY ---- */
-  .ld-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-      to top,
-      rgba(0,0,0,0.92) 0%,
-      rgba(0,0,0,0.55) 45%,
-      rgba(0,0,0,0) 80%
-    );
-    opacity: 0;
-    transition: opacity 0.35s ease;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: 2rem 2rem 2rem;
-    pointer-events: none;
-  }
-
-  .ld-card:hover .ld-overlay { opacity: 1; }
-
-  .ld-overlay-role {
-    font-family: 'Space Mono', monospace;
-    font-size: 0.65rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--teal);
-    margin-bottom: 0.5rem;
-    transform: translateY(6px);
-    transition: transform 0.35s ease 0.05s;
-  }
-
-  .ld-card:hover .ld-overlay-role { transform: translateY(0); }
-
-  .ld-overlay-title {
+  .ld-card-title {
     font-family: 'Archivo Black', sans-serif;
-    font-size: 1.5rem;
+    font-size: 1rem;
     text-transform: uppercase;
-    letter-spacing: -0.01em;
-    color: #fff;
-    line-height: 1.0;
-    margin-bottom: 0.5rem;
-    transform: translateY(8px);
-    transition: transform 0.35s ease 0.08s;
+    letter-spacing: 0.01em;
+    color: var(--offwhite);
+    line-height: 1.1;
   }
 
-  .ld-card:hover .ld-overlay-title { transform: translateY(0); }
-
-  .ld-card.featured .ld-overlay-title { font-size: 2rem; }
-
-  .ld-overlay-sub {
-    font-size: 0.78rem;
-    color: rgba(255,255,255,0.62);
-    line-height: 1.5;
-    transform: translateY(6px);
-    transition: transform 0.35s ease 0.1s;
-  }
-
-  .ld-card:hover .ld-overlay-sub { transform: translateY(0); }
-
-  .ld-overlay-year {
+  .ld-card-role {
     font-family: 'Space Mono', monospace;
     font-size: 0.65rem;
     letter-spacing: 0.12em;
-    color: var(--coral);
-    margin-top: 0.5rem;
-    transform: translateY(6px);
-    transition: transform 0.35s ease 0.12s;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-top: 0.15rem;
   }
 
-  .ld-card:hover .ld-overlay-year { transform: translateY(0); }
+  .ld-card-sub {
+    font-size: 0.78rem;
+    color: var(--muted);
+    line-height: 1.5;
+    margin-top: 0.1rem;
+  }
 
-  /* ---- CREDITS TABLE ---- */
+  /* ---- CREDITS ---- */
+  .credits-section {
+    border-top: 3px solid var(--border);
+  }
+
+  .credits-head {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    border-bottom: 2px solid var(--border);
+  }
+
+  .credits-num {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    color: var(--teal);
+    padding: 1rem 1.5rem;
+    border-right: 2px solid var(--border);
+    text-transform: uppercase;
+  }
+
+  .credits-title {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+    padding: 1.5rem 2rem;
+    line-height: 1;
+  }
+
+  .credits-title .accent { color: var(--coral); }
+
+  .credits-meta {
+    padding: 1rem 1.5rem;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.85rem;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+    border-left: 2px solid var(--border);
+  }
+
   .credit-row {
     display: grid;
     grid-template-columns: 200px 1fr auto;
@@ -355,7 +261,6 @@
   .credit-title {
     font-family: 'Archivo Black', sans-serif;
     font-size: 0.95rem;
-    letter-spacing: 0.01em;
     color: var(--offwhite);
     margin-bottom: 0.2rem;
   }
@@ -373,45 +278,69 @@
     white-space: nowrap;
   }
 
-  /* ---- ANIMATIONS ---- */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+  /* ---- CONTACT ---- */
+  .contact-section { border-top: 3px solid var(--teal); }
+
+  .contact-head {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    border-bottom: 2px solid var(--border);
+  }
+
+  /* ---- FOOTER ---- */
+  footer {
+    border-top: 2px solid var(--border);
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    background: var(--concrete);
+  }
+
+  .footer-left {
+    padding: 1rem 1.75rem;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #666;
+    border-right: 2px solid #333;
+  }
+
+  .footer-center {
+    padding: 1rem 2rem;
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #444;
+  }
+
+  .footer-right {
+    padding: 1rem 1.75rem;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #666;
+    border-left: 2px solid #333;
+    text-align: right;
   }
 
   /* ---- RESPONSIVE ---- */
-  @media (max-width: 1000px) {
-    .tools-bar { grid-template-columns: repeat(3, 1fr); }
-    .tool-cell:nth-child(3n) { border-right: none; }
-    .tool-cell:nth-child(n+4) { border-top: 2px solid var(--border); }
-  }
-
   @media (max-width: 900px) {
-    .ld-hero { grid-template-columns: 1fr; min-height: auto; }
-    .ld-hero-content { border-right: none; border-bottom: 3px solid var(--teal); padding: 4rem 2.5rem; }
-    .ld-hero-image { min-height: 50vw; }
-    .ld-grid { grid-template-columns: repeat(2, 1fr); }
-    .ld-card.featured { grid-column: span 2; }
-    .ld-card:nth-child(3n) { border-right: 2px solid var(--border); }
-    .ld-card:nth-child(2n) { border-right: none; }
-    .ld-card:nth-last-child(-n+3) { border-bottom: 2px solid var(--border); }
-    .ld-card:nth-last-child(-n+2) { border-bottom: none; }
-    .credit-row { grid-template-columns: 140px 1fr auto; }
-    .section-meta { display: none; }
-    .section-head { grid-template-columns: auto 1fr; }
+    .ld-grid { grid-template-columns: repeat(2, 1fr); padding: 2rem 1.5rem; gap: 2rem 1.5rem; }
+    .page-header-meta, .credits-meta { display: none; }
+    .page-header, .credits-head, .contact-head { grid-template-columns: auto 1fr; }
     .nav-center { display: none; }
+    .credit-row { grid-template-columns: 130px 1fr auto; }
   }
 
   @media (max-width: 600px) {
-    .ld-grid { grid-template-columns: 1fr; }
-    .ld-card.featured { grid-column: span 1; }
-    .ld-card.featured img { aspect-ratio: 4/3; }
-    .ld-card:nth-child(n) { border-right: none; border-bottom: 2px solid var(--border); }
-    .ld-card:last-child { border-bottom: none; }
-    .tools-bar { grid-template-columns: repeat(2, 1fr); }
-    .tool-cell:nth-child(2n) { border-right: none; }
+    .ld-grid { grid-template-columns: 1fr; padding: 1.5rem 1rem; }
     .credit-row { grid-template-columns: 1fr; gap: 0.4rem; }
     .credit-year { display: none; }
+    .footer-center { display: none; }
   }
 </style>
 </head>
@@ -432,265 +361,159 @@
   </ul>
 </nav>
 
-<!-- HERO -->
-<div class="ld-hero">
-  <div class="ld-hero-content">
-    <p style="font-family:'Space Mono',monospace;font-size:0.85rem;letter-spacing:0.18em;
-      text-transform:uppercase;color:var(--teal);margin-bottom:1.5rem;
-      animation:fadeUp 0.5s ease 0.1s both;">
-      Portfolio
-    </p>
-    <h1 style="font-family:'Archivo Black',sans-serif;font-size:clamp(3rem,6vw,6.5rem);
-      line-height:0.88;letter-spacing:-0.02em;text-transform:uppercase;margin-bottom:2rem;
-      animation:fadeUp 0.6s ease 0.2s both;">
-      LIGHT<br><span style="color:var(--coral);">DESIGN</span>
-    </h1>
-    <p style="font-size:0.95rem;line-height:1.8;color:var(--muted);max-width:400px;
-      margin-bottom:3rem;animation:fadeUp 0.6s ease 0.35s both;">
-      Production lighting spanning theatrical drama, sketch comedy, and live events.
-      Console programming, plot design, hang and focus.
-    </p>
-    <div style="animation:fadeUp 0.6s ease 0.45s both;">
-      <a href="index.html#contact"
-        style="display:inline-block;font-family:'Archivo Black',sans-serif;
-        font-size:0.9rem;letter-spacing:0.06em;text-transform:uppercase;
-        padding:1rem 2.25rem;background:var(--coral);color:#fff;text-decoration:none;
-        transition:background 0.2s;"
-        onmouseover="this.style.background='var(--teal)'"
-        onmouseout="this.style.background='var(--coral)'">
-        Get in Touch
-      </a>
-    </div>
-  </div>
-  <div class="ld-hero-image">
-    <img src="effect.JPEG" alt="The Effect — Lighting Design" />
-  </div>
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <span class="page-header-num">LD</span>
+  <h1 class="page-header-title">Lighting <span class="accent">Design</span></h1>
+  <span class="page-header-meta">Theater · Live Events</span>
 </div>
 
-<!-- TOOLS BAR -->
-<div class="tools-bar">
-  <div class="tool-cell">
-    <span class="tool-cell-label">Console</span>
-    <span class="tool-cell-name">ETC Eos</span>
-  </div>
-  <div class="tool-cell">
-    <span class="tool-cell-label">Show Control</span>
-    <span class="tool-cell-name">QLab</span>
-  </div>
-  <div class="tool-cell">
-    <span class="tool-cell-label">Plot Design</span>
-    <span class="tool-cell-name">Vectorworks</span>
-  </div>
-  <div class="tool-cell">
-    <span class="tool-cell-label">Physical</span>
-    <span class="tool-cell-name">Hang &amp; Focus</span>
-  </div>
-  <div class="tool-cell">
-    <span class="tool-cell-label">Physical</span>
-    <span class="tool-cell-name">Custom Wiring</span>
-  </div>
-  <div class="tool-cell">
-    <span class="tool-cell-label">Post</span>
-    <span class="tool-cell-name">DaVinci Resolve</span>
-  </div>
-</div>
+<!-- PHOTO GRID -->
+<div class="ld-grid">
 
-<!-- PRODUCTION STILLS -->
-<section>
-  <div class="section-head">
-    <span class="section-num">01</span>
-    <h2 class="section-title">Production <span class="accent">Stills</span></h2>
-    <span class="section-meta">Hover for credits</span>
-  </div>
-
-  <div class="ld-grid">
-
-    <!-- The Effect — featured (2-wide) -->
-    <div class="ld-card featured">
+  <div class="ld-card">
+    <div class="ld-card-image">
       <img src="effect.JPEG" alt="The Effect" />
-      <div class="ld-overlay">
-        <p class="ld-overlay-role">Lighting Designer · Director · Actor</p>
-        <p class="ld-overlay-title">The Effect</p>
-        <p class="ld-overlay-sub">Lucy Prebble · Carleton College</p>
-        <p class="ld-overlay-year">2022</p>
-      </div>
     </div>
-
-    <!-- Heart is the Last Frontier -->
-    <div class="ld-card">
-      <img src="heart_frontier.jpg" alt="The Heart is the Last Frontier" />
-      <div class="ld-overlay">
-        <p class="ld-overlay-role">Electrician</p>
-        <p class="ld-overlay-title">The Heart is the Last Frontier</p>
-        <p class="ld-overlay-sub">Pig Iron Theater Company</p>
-        <p class="ld-overlay-year">2018</p>
-      </div>
-    </div>
-
-    <!-- As You Like It -->
-    <div class="ld-card">
-      <img src="as_you_like_it.jpg" alt="As You Like It" />
-      <div class="ld-overlay">
-        <!-- UPDATE: confirm your role and venue for this show -->
-        <p class="ld-overlay-role">Lighting Designer</p>
-        <p class="ld-overlay-title">As You Like It</p>
-        <p class="ld-overlay-sub"><!-- venue/company here --></p>
-        <p class="ld-overlay-year"><!-- year here --></p>
-      </div>
-    </div>
-
-    <!-- Bull -->
-    <div class="ld-card">
-      <img src="bull.webp" alt="Bull" />
-      <div class="ld-overlay">
-        <p class="ld-overlay-role">Director</p>
-        <p class="ld-overlay-title">Bull</p>
-        <p class="ld-overlay-sub">Mike Bartlett · Carleton College</p>
-        <p class="ld-overlay-year">2021</p>
-      </div>
-    </div>
-
-    <!-- Everybody (or correct title) -->
-    <div class="ld-card">
-      <img src="everybody.jpg" alt="Production" />
-      <div class="ld-overlay">
-        <!-- UPDATE: fill in show title, role, venue, year -->
-        <p class="ld-overlay-role"><!-- role here --></p>
-        <p class="ld-overlay-title"><!-- show title here --></p>
-        <p class="ld-overlay-sub"><!-- venue here --></p>
-        <p class="ld-overlay-year"><!-- year here --></p>
-      </div>
-    </div>
-
-    <!-- Good Kids (or correct title) -->
-    <div class="ld-card">
-      <img src="goodkids.jpg" alt="Production" />
-      <div class="ld-overlay">
-        <!-- UPDATE: fill in show title, role, venue, year -->
-        <p class="ld-overlay-role"><!-- role here --></p>
-        <p class="ld-overlay-title"><!-- show title here --></p>
-        <p class="ld-overlay-sub"><!-- venue here --></p>
-        <p class="ld-overlay-year"><!-- year here --></p>
-      </div>
-    </div>
-
-    <!-- Black Comedy — placeholder until ORF files are exported to JPG -->
-    <!--
-    <div class="ld-card">
-      <img src="black_comedy.jpg" alt="Black Comedy" />
-      <div class="ld-overlay">
-        <p class="ld-overlay-role">Lighting Designer</p>
-        <p class="ld-overlay-title">Black Comedy</p>
-        <p class="ld-overlay-sub">Peter Shaffer · The Uninvited Company</p>
-        <p class="ld-overlay-year">2019</p>
-      </div>
-    </div>
-    -->
-
+    <p class="ld-card-title">The Effect</p>
+    <p class="ld-card-role">Lighting Designer · Director · Actor</p>
+    <p class="ld-card-sub">Lucy Prebble · Carleton College · 2022</p>
   </div>
-</section>
 
-<!-- FULL CREDITS -->
-<section>
-  <div class="section-head">
-    <span class="section-num">02</span>
-    <h2 class="section-title">Full <span class="accent">Credits</span></h2>
-    <span class="section-meta">All production work</span>
+  <div class="ld-card">
+    <div class="ld-card-image">
+      <img src="black_comedy.jpg" alt="Black Comedy" />
+    </div>
+    <p class="ld-card-title">Black Comedy</p>
+    <p class="ld-card-role">Lighting Designer</p>
+    <p class="ld-card-sub">Peter Shaffer · The Uninvited Company · 2019</p>
+  </div>
+
+  <div class="ld-card">
+    <div class="ld-card-image">
+      <img src="heart_frontier.jpg" alt="The Heart is the Last Frontier" />
+    </div>
+    <p class="ld-card-title">The Heart is the Last Frontier</p>
+    <p class="ld-card-role">Electrician</p>
+    <p class="ld-card-sub">Pig Iron Theater Company · 2018</p>
+  </div>
+
+  <div class="ld-card">
+    <div class="ld-card-image">
+      <img src="dee_1.jpeg" alt="Lenny Dee Players" />
+    </div>
+    <p class="ld-card-title">Lenny Dee Players</p>
+    <p class="ld-card-role">Lighting Designer</p>
+    <p class="ld-card-sub">Carleton College · 2018–2022</p>
+  </div>
+
+  <div class="ld-card">
+    <div class="ld-card-image">
+      <img src="bull.jpeg" alt="Bull" />
+    </div>
+    <p class="ld-card-title">Bull</p>
+    <p class="ld-card-role">Director</p>
+    <p class="ld-card-sub">Mike Bartlett · Carleton College · 2021</p>
+  </div>
+
+  <div class="ld-card">
+    <div class="ld-card-image">
+      <img src="as_you_like_it.jpg" alt="As You Like It" />
+    </div>
+    <p class="ld-card-title">As You Like It</p>
+    <p class="ld-card-role"><!-- role here --></p>
+    <p class="ld-card-sub"><!-- venue · year here --></p>
+  </div>
+
+  <div class="ld-card">
+    <div class="ld-card-image">
+      <img src="everybody.jpg" alt="Production" />
+    </div>
+    <p class="ld-card-title"><!-- show title here --></p>
+    <p class="ld-card-role"><!-- role here --></p>
+    <p class="ld-card-sub"><!-- venue · year here --></p>
+  </div>
+
+  <div class="ld-card">
+    <div class="ld-card-image">
+      <img src="goodkids.jpg" alt="Production" />
+    </div>
+    <p class="ld-card-title"><!-- show title here --></p>
+    <p class="ld-card-role"><!-- role here --></p>
+    <p class="ld-card-sub"><!-- venue · year here --></p>
+  </div>
+
+</div>
+
+<!-- CREDITS TABLE -->
+<div class="credits-section">
+  <div class="credits-head">
+    <span class="credits-num">02</span>
+    <h2 class="credits-title">Full <span class="accent">Credits</span></h2>
+    <span class="credits-meta">All production work</span>
   </div>
 
   <div>
     <div class="credit-row">
       <span class="credit-role">Electrician</span>
-      <div>
-        <p class="credit-title">The Heart is the Last Frontier</p>
-        <p class="credit-org">Pig Iron Theater Company</p>
-      </div>
+      <div><p class="credit-title">The Heart is the Last Frontier</p><p class="credit-org">Pig Iron Theater Company</p></div>
       <span class="credit-year">2018</span>
     </div>
-
     <div class="credit-row">
       <span class="credit-role">Lighting Designer</span>
-      <div>
-        <p class="credit-title">Lenny Dee Sketch Comedy</p>
-        <p class="credit-org">Carleton College — 9 productions</p>
-      </div>
+      <div><p class="credit-title">Lenny Dee Sketch Comedy</p><p class="credit-org">Carleton College — 9 productions</p></div>
       <span class="credit-year">2018–2022</span>
     </div>
-
     <div class="credit-row">
       <span class="credit-role">Operator</span>
-      <div>
-        <p class="credit-title">Cujokra Improv Theater</p>
-        <p class="credit-org">4 productions</p>
-      </div>
+      <div><p class="credit-title">Cujokra Improv Theater</p><p class="credit-org">4 productions</p></div>
       <span class="credit-year">2018–2022</span>
     </div>
-
     <div class="credit-row">
       <span class="credit-role">Lighting Designer</span>
-      <div>
-        <p class="credit-title">Almost, Maine</p>
-        <p class="credit-org">Experimental Theater Board</p>
-      </div>
+      <div><p class="credit-title">Almost, Maine</p><p class="credit-org">Experimental Theater Board</p></div>
       <span class="credit-year">2019</span>
     </div>
-
     <div class="credit-row">
       <span class="credit-role">Lighting Designer</span>
-      <div>
-        <p class="credit-title">Black Comedy</p>
-        <p class="credit-org">The Uninvited Company</p>
-      </div>
+      <div><p class="credit-title">Black Comedy</p><p class="credit-org">The Uninvited Company</p></div>
       <span class="credit-year">2019</span>
     </div>
-
     <div class="credit-row">
       <span class="credit-role">Operator</span>
-      <div>
-        <p class="credit-title">Mr. Burns, A Post-Electric Play</p>
-        <p class="credit-org">The Vortex Theatre</p>
-      </div>
+      <div><p class="credit-title">Mr. Burns, A Post-Electric Play</p><p class="credit-org">The Vortex Theatre</p></div>
       <span class="credit-year">2021</span>
     </div>
-
     <div class="credit-row">
       <span class="credit-role">LD · Director · Actor</span>
-      <div>
-        <p class="credit-title">The Effect</p>
-        <p class="credit-org">Lucy Prebble · Carleton College</p>
-      </div>
+      <div><p class="credit-title">The Effect</p><p class="credit-org">Lucy Prebble · Carleton College</p></div>
       <span class="credit-year">2022</span>
     </div>
-
     <div class="credit-row">
       <span class="credit-role">Electrician</span>
-      <div>
-        <p class="credit-title">Next to Normal</p>
-        <p class="credit-org">Kentwood Players, Los Angeles</p>
-      </div>
+      <div><p class="credit-title">Next to Normal</p><p class="credit-org">Kentwood Players, Los Angeles</p></div>
       <span class="credit-year">2025</span>
     </div>
   </div>
-</section>
+</div>
 
 <!-- CONTACT -->
-<section style="border-top:3px solid var(--teal);">
-  <div class="section-head">
-    <span class="section-num">03</span>
-    <h2 class="section-title">Get in <span class="accent">Touch</span></h2>
-    <span class="section-meta">Open to opportunities</span>
+<div class="contact-section">
+  <div class="contact-head">
+    <span class="credits-num">03</span>
+    <h2 class="credits-title">Get in <span class="accent">Touch</span></h2>
+    <span class="credits-meta">Open to opportunities</span>
   </div>
-  <div style="display:grid;grid-template-columns:1fr 1fr;min-height:220px;">
+  <div style="display:grid;grid-template-columns:1fr 1fr;min-height:200px;">
     <div style="padding:3.5rem 3rem;border-right:2px solid var(--border);">
       <h3 style="font-family:'Archivo Black',sans-serif;font-size:clamp(1.8rem,3vw,3rem);
-        text-transform:uppercase;line-height:0.95;letter-spacing:-0.02em;
-        margin-bottom:1.25rem;color:var(--offwhite);">
+        text-transform:uppercase;line-height:0.95;letter-spacing:-0.02em;margin-bottom:1.25rem;">
         <span style="color:var(--teal);">Let's</span><br>
         work<br>
         <span style="color:var(--coral);">together.</span>
       </h3>
       <p style="font-size:0.88rem;color:var(--muted);line-height:1.7;max-width:360px;">
-        Available for lighting design, electrician work, console programming, and production. Open to conversations about theater, live events, and esports.
+        Available for lighting design, electrician work, and production. Open to theater, live events, and esports.
       </p>
     </div>
     <div style="display:flex;flex-direction:column;justify-content:center;">
@@ -702,7 +525,7 @@
         onmouseout="this.style.background='transparent'">
         <div>
           <p style="font-family:'Archivo Black',sans-serif;font-size:1.1rem;
-            text-transform:uppercase;letter-spacing:0.01em;color:var(--offwhite);">Email</p>
+            text-transform:uppercase;color:var(--offwhite);">Email</p>
           <p style="font-family:'Space Mono',monospace;font-size:0.6rem;
             color:var(--muted);letter-spacing:0.08em;margin-top:0.2rem;">wjosowitz@gmail.com</p>
         </div>
@@ -715,7 +538,7 @@
         onmouseout="this.style.background='transparent'">
         <div>
           <p style="font-family:'Archivo Black',sans-serif;font-size:1.1rem;
-            text-transform:uppercase;letter-spacing:0.01em;color:var(--offwhite);">LinkedIn</p>
+            text-transform:uppercase;color:var(--offwhite);">LinkedIn</p>
           <p style="font-family:'Space Mono',monospace;font-size:0.6rem;
             color:var(--muted);letter-spacing:0.08em;margin-top:0.2rem;">linkedin.com/in/willjosowitz</p>
         </div>
@@ -723,24 +546,13 @@
       </a>
     </div>
   </div>
-</section>
+</div>
 
 <!-- FOOTER -->
-<footer style="border-top:2px solid var(--border);display:grid;grid-template-columns:1fr auto 1fr;
-  align-items:center;background:var(--concrete);">
-  <p style="padding:1rem 1.75rem;font-family:'Space Mono',monospace;font-size:0.85rem;
-    letter-spacing:0.1em;text-transform:uppercase;color:#666;border-right:2px solid #333;">
-    Will Josowitz &copy; 2025
-  </p>
-  <p style="padding:1rem 2rem;font-family:'Archivo Black',sans-serif;font-size:0.7rem;
-    letter-spacing:0.08em;text-transform:uppercase;color:#444;">
-    Los Angeles
-  </p>
-  <p style="padding:1rem 1.75rem;font-family:'Space Mono',monospace;font-size:0.85rem;
-    letter-spacing:0.1em;text-transform:uppercase;color:#666;border-left:2px solid #333;
-    text-align:right;">
-    Lighting Designer · Director · Writer
-  </p>
+<footer>
+  <p class="footer-left">Will Josowitz &copy; 2025</p>
+  <p class="footer-center">Los Angeles</p>
+  <p class="footer-right">Lighting Designer · Director · Writer</p>
 </footer>
 
 </body>
