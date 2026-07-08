@@ -196,9 +196,7 @@
   }
 
   /* ---- CREDITS ---- */
-  .credits-section {
-    border-top: 3px solid var(--border);
-  }
+  .credits-section { border-top: 3px solid var(--border); }
 
   .credits-head {
     display: grid;
@@ -278,16 +276,6 @@
     white-space: nowrap;
   }
 
-  /* ---- CONTACT ---- */
-  .contact-section { border-top: 3px solid var(--teal); }
-
-  .contact-head {
-    display: grid;
-    grid-template-columns: auto 1fr auto;
-    align-items: center;
-    border-bottom: 2px solid var(--border);
-  }
-
   /* ---- FOOTER ---- */
   footer {
     border-top: 2px solid var(--border);
@@ -331,7 +319,7 @@
   @media (max-width: 900px) {
     .ld-grid { grid-template-columns: repeat(2, 1fr); padding: 2rem 1.5rem; gap: 2rem 1.5rem; }
     .page-header-meta, .credits-meta { display: none; }
-    .page-header, .credits-head, .contact-head { grid-template-columns: auto 1fr; }
+    .page-header, .credits-head { grid-template-columns: auto 1fr; }
     .nav-center { display: none; }
     .credit-row { grid-template-columns: 130px 1fr auto; }
   }
@@ -340,7 +328,6 @@
     .ld-grid { grid-template-columns: 1fr; padding: 1.5rem 1rem; }
     .credit-row { grid-template-columns: 1fr; gap: 0.4rem; }
     .credit-year { display: none; }
-    .footer-center { display: none; }
   }
 </style>
 </head>
@@ -382,29 +369,20 @@
 
   <div class="ld-card">
     <div class="ld-card-image">
-      <img src="black_comedy.jpg" alt="Black Comedy" />
-    </div>
-    <p class="ld-card-title">Black Comedy</p>
-    <p class="ld-card-role">Lighting Designer</p>
-    <p class="ld-card-sub">Peter Shaffer · The Uninvited Company · 2019</p>
-  </div>
-
-  <div class="ld-card">
-    <div class="ld-card-image">
-      <img src="heart_frontier.jpg" alt="The Heart is the Last Frontier" />
-    </div>
-    <p class="ld-card-title">The Heart is the Last Frontier</p>
-    <p class="ld-card-role">Electrician</p>
-    <p class="ld-card-sub">Pig Iron Theater Company · 2018</p>
-  </div>
-
-  <div class="ld-card">
-    <div class="ld-card-image">
       <img src="dee_1.jpeg" alt="Lenny Dee Players" />
     </div>
     <p class="ld-card-title">Lenny Dee Players</p>
-    <p class="ld-card-role">Lighting Designer</p>
+    <p class="ld-card-role">Lighting Designer — 11 Productions</p>
     <p class="ld-card-sub">Carleton College · 2018–2022</p>
+  </div>
+
+  <div class="ld-card">
+    <div class="ld-card-image">
+      <img src="everybody.jpg" alt="Everybody" />
+    </div>
+    <p class="ld-card-title">Everybody</p>
+    <p class="ld-card-role">Lighting Designer · Master Electrician</p>
+    <p class="ld-card-sub">Branden Jacobs-Jenkins · Carleton College · 2021</p>
   </div>
 
   <div class="ld-card">
@@ -412,8 +390,26 @@
       <img src="bull.jpeg" alt="Bull" />
     </div>
     <p class="ld-card-title">Bull</p>
-    <p class="ld-card-role">Director</p>
-    <p class="ld-card-sub">Mike Bartlett · Carleton College · 2021</p>
+    <p class="ld-card-role">Director · Producer</p>
+    <p class="ld-card-sub">Mike Bartlett · Carleton College · 2020</p>
+  </div>
+
+  <div class="ld-card">
+    <div class="ld-card-image">
+      <img src="black_comedy.jpg" alt="Black Comedy" />
+    </div>
+    <p class="ld-card-title">Black Comedy</p>
+    <p class="ld-card-role">Lighting Designer · Master Electrician</p>
+    <p class="ld-card-sub">Peter Shaffer · The Uninvited Company · 2019</p>
+  </div>
+
+  <div class="ld-card">
+    <div class="ld-card-image">
+      <img src="almost_maine.jpeg" alt="Almost, Maine" />
+    </div>
+    <p class="ld-card-title">Almost, Maine</p>
+    <p class="ld-card-role">Lighting Designer · Master Electrician</p>
+    <p class="ld-card-sub">John Cariani · Carleton College · 2018</p>
   </div>
 
   <div class="ld-card">
@@ -421,26 +417,26 @@
       <img src="as_you_like_it.jpg" alt="As You Like It" />
     </div>
     <p class="ld-card-title">As You Like It</p>
-    <p class="ld-card-role"><!-- role here --></p>
-    <p class="ld-card-sub"><!-- venue · year here --></p>
+    <p class="ld-card-role">Lighting Designer · Electrician</p>
+    <p class="ld-card-sub">Directed by Taous Khazem · Carleton College · 2018</p>
   </div>
 
   <div class="ld-card">
     <div class="ld-card-image">
-      <img src="everybody.jpg" alt="Production" />
+      <img src="goodkids.jpg" alt="Good Kids" />
     </div>
-    <p class="ld-card-title"><!-- show title here --></p>
-    <p class="ld-card-role"><!-- role here --></p>
-    <p class="ld-card-sub"><!-- venue · year here --></p>
+    <p class="ld-card-title">Good Kids</p>
+    <p class="ld-card-role">Lighting Designer · Electrician</p>
+    <p class="ld-card-sub">Naomi Iizuka · Carleton College · 2018</p>
   </div>
 
   <div class="ld-card">
     <div class="ld-card-image">
-      <img src="goodkids.jpg" alt="Production" />
+      <img src="heart_frontier.jpg" alt="The Heart is the Last Frontier" />
     </div>
-    <p class="ld-card-title"><!-- show title here --></p>
-    <p class="ld-card-role"><!-- role here --></p>
-    <p class="ld-card-sub"><!-- venue · year here --></p>
+    <p class="ld-card-title">The Heart is the Last Frontier</p>
+    <p class="ld-card-role">Master Electrician</p>
+    <p class="ld-card-sub">Carleton College &amp; Pig Iron Theater Company · 2018</p>
   </div>
 
 </div>
@@ -452,54 +448,58 @@
     <h2 class="credits-title">Full <span class="accent">Credits</span></h2>
     <span class="credits-meta">All production work</span>
   </div>
-
   <div>
-    <div class="credit-row">
-      <span class="credit-role">Electrician</span>
-      <div><p class="credit-title">The Heart is the Last Frontier</p><p class="credit-org">Pig Iron Theater Company</p></div>
-      <span class="credit-year">2018</span>
-    </div>
-    <div class="credit-row">
-      <span class="credit-role">Lighting Designer</span>
-      <div><p class="credit-title">Lenny Dee Sketch Comedy</p><p class="credit-org">Carleton College — 9 productions</p></div>
-      <span class="credit-year">2018–2022</span>
-    </div>
-    <div class="credit-row">
-      <span class="credit-role">Operator</span>
-      <div><p class="credit-title">Cujokra Improv Theater</p><p class="credit-org">4 productions</p></div>
-      <span class="credit-year">2018–2022</span>
-    </div>
-    <div class="credit-row">
-      <span class="credit-role">Lighting Designer</span>
-      <div><p class="credit-title">Almost, Maine</p><p class="credit-org">Experimental Theater Board</p></div>
-      <span class="credit-year">2019</span>
-    </div>
-    <div class="credit-row">
-      <span class="credit-role">Lighting Designer</span>
-      <div><p class="credit-title">Black Comedy</p><p class="credit-org">The Uninvited Company</p></div>
-      <span class="credit-year">2019</span>
-    </div>
-    <div class="credit-row">
-      <span class="credit-role">Operator</span>
-      <div><p class="credit-title">Mr. Burns, A Post-Electric Play</p><p class="credit-org">The Vortex Theatre</p></div>
-      <span class="credit-year">2021</span>
-    </div>
     <div class="credit-row">
       <span class="credit-role">LD · Director · Actor</span>
       <div><p class="credit-title">The Effect</p><p class="credit-org">Lucy Prebble · Carleton College</p></div>
       <span class="credit-year">2022</span>
     </div>
     <div class="credit-row">
-      <span class="credit-role">Electrician</span>
-      <div><p class="credit-title">Next to Normal</p><p class="credit-org">Kentwood Players, Los Angeles</p></div>
-      <span class="credit-year">2025</span>
+      <span class="credit-role">Lighting Designer</span>
+      <div><p class="credit-title">Lenny Dee Players</p><p class="credit-org">Carleton College — 11 productions</p></div>
+      <span class="credit-year">2018–2022</span>
+    </div>
+    <div class="credit-row">
+      <span class="credit-role">LD · Master Electrician</span>
+      <div><p class="credit-title">Everybody</p><p class="credit-org">Branden Jacobs-Jenkins · Carleton College</p></div>
+      <span class="credit-year">2021</span>
+    </div>
+    <div class="credit-row">
+      <span class="credit-role">Director · Producer</span>
+      <div><p class="credit-title">Bull</p><p class="credit-org">Mike Bartlett · Carleton College</p></div>
+      <span class="credit-year">2020</span>
+    </div>
+    <div class="credit-row">
+      <span class="credit-role">LD · Master Electrician</span>
+      <div><p class="credit-title">Black Comedy</p><p class="credit-org">Peter Shaffer · The Uninvited Company</p></div>
+      <span class="credit-year">2019</span>
+    </div>
+    <div class="credit-row">
+      <span class="credit-role">LD · Master Electrician</span>
+      <div><p class="credit-title">Almost, Maine</p><p class="credit-org">John Cariani · Carleton College</p></div>
+      <span class="credit-year">2018</span>
+    </div>
+    <div class="credit-row">
+      <span class="credit-role">LD · Electrician</span>
+      <div><p class="credit-title">As You Like It</p><p class="credit-org">Directed by Taous Khazem · Carleton College</p></div>
+      <span class="credit-year">2018</span>
+    </div>
+    <div class="credit-row">
+      <span class="credit-role">LD · Electrician</span>
+      <div><p class="credit-title">Good Kids</p><p class="credit-org">Naomi Iizuka · Carleton College</p></div>
+      <span class="credit-year">2018</span>
+    </div>
+    <div class="credit-row">
+      <span class="credit-role">Master Electrician</span>
+      <div><p class="credit-title">The Heart is the Last Frontier</p><p class="credit-org">Carleton College &amp; Pig Iron Theater Company</p></div>
+      <span class="credit-year">2018</span>
     </div>
   </div>
 </div>
 
 <!-- CONTACT -->
-<div class="contact-section">
-  <div class="contact-head">
+<div style="border-top:3px solid var(--teal);">
+  <div class="credits-head">
     <span class="credits-num">03</span>
     <h2 class="credits-title">Get in <span class="accent">Touch</span></h2>
     <span class="credits-meta">Open to opportunities</span>
